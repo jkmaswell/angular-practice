@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {CategoryResource} from './core/resource/category/category.resource';
+import {Category} from './core/model/category/category.model';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +17,8 @@ export class AppComponent {
 
   loadInitialData() {
     this.categoryResource.getAllCategories()
-      .subscribe((response) => {
-        this.categories = response;
+      .subscribe((categories: Category[]) => {
+        this.categories = categories;
       });
   }
 }

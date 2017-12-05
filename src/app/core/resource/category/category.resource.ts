@@ -5,7 +5,7 @@ import {Category} from '../../model/category/category.model';
 
 // Import RxJs required methods
 import {Observable} from 'rxjs/Observable';
-import { catchError, map, tap } from 'rxjs/operators';
+import 'rxjs/add/operator/map'
 
 @Injectable()
 export class CategoryResource {
@@ -15,7 +15,13 @@ export class CategoryResource {
   }
 
   getAllCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(VimeoApiKey.vimeoBaseUrl + 'categories');
+    return this.http.get<any>(VimeoApiKey.vimeoBaseUrl + 'categories').map(response => {
+      const categories: Category[] = [];
+      response.data.forEach(d => {
+        categories.push(new Category(d.uri, d.name, d.link));
+      });
+      return categories;
+    });
   }
 
 }
