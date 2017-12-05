@@ -16,6 +16,8 @@ export class AppComponent {
 
   loadInitialData() {
     this.categoryResource.getAllCategories()
-      .subscribe(categories => this.categories = categories);
+      .subscribe((response) => {
+        this.categories = response;
+      });
   }
 }

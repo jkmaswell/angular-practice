@@ -14,8 +14,8 @@ export class CategoryResource {
     this.http = http;
   }
 
-  getAllCategories(): Observable<any> {
-    return this.http.get(VimeoApiKey.vimeoBaseUrl + 'categories');
+  getAllCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(VimeoApiKey.vimeoBaseUrl + 'categories');
   }
 
 }
