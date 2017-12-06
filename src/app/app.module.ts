@@ -9,12 +9,14 @@ import {UsersComponent} from './states/users/users.component';
 import {CoreModule} from './core/core.module';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {GeneralInterceptor} from './app.interceptor';
+import { NavComponent } from './commons/component/nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    UsersComponent
+    UsersComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

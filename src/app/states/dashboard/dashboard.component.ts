@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CategoryVideos} from '../../core/model/category/category.model';
+import {CategoryService} from '../../core/service/category/category.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  private categoryVideos: CategoryVideos[];
+
+  constructor(private categoryService: CategoryService) {
+  }
 
   ngOnInit() {
   }
 
+  getCategoryVideos(categoryId: string, page: string, perPage: string) {
+    this.categoryService.getCategoryVideos(categoryId, page, perPage)
+      .subscribe((categoryVideos: CategoryVideos[]) => {
+        this.categoryVideos = categoryVideos;
+      });
+  }
 }
