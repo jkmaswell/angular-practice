@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CategoryVideos} from '../../core/model/category/category.model';
 import {CategoryService} from '../../core/service/category/category.service';
 
@@ -9,7 +9,7 @@ import {CategoryService} from '../../core/service/category/category.service';
 })
 export class DashboardComponent implements OnInit {
 
-  private categoryVideos: CategoryVideos[];
+  @Input() categoryVideos: CategoryVideos[];
 
   constructor(private categoryService: CategoryService) {
   }

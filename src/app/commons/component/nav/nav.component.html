@@ -1,5 +1,5 @@
 <ul>
   <li *ngFor="let category of categories">
-    <a uiSref="/" [uiParams]="{categoryId: category.id}">{{category.name}}</a>
+    <a uiSref="dashboard" [uiParams]="{categoryId: category.id}">{{category.name}}</a>
   </li>
 </ul>
