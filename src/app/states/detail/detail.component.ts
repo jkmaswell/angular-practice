@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CategoryVideo} from '../../core/model/category/category.model';
+import {Video} from '../../core/model/video/video.model';
 
 @Component({
   selector: 'app-detail',
@@ -8,7 +8,7 @@ import {CategoryVideo} from '../../core/model/category/category.model';
 })
 export class DetailComponent implements OnInit {
 
-  @Input() categoryVideo: CategoryVideo;
+  @Input() categoryVideo: Video;
 
   constructor() {
   }

@@ -1,6 +1,6 @@
 import {DashboardComponent} from './dashboard.component';
 import {Transition} from '@uirouter/angular';
-import {CategoryService} from '../../core/service/category/category.service';
+import {VideoService} from '../../core/service/video/video.service';
 
 export const state = {
   name: 'main.dashboard',
@@ -18,10 +18,10 @@ export const state = {
   resolve: [
     {
       token: 'categoryVideos',
-      deps: [Transition, CategoryService],
-      resolveFn: (transition: Transition, categoryService: CategoryService) => {
+      deps: [Transition, VideoService],
+      resolveFn: (transition: Transition, videoService: VideoService) => {
         const params = transition.params();
-        return categoryService.getCategoryVideos(params.categoryId, params.page, params.perPage).toPromise();
+        return videoService.getVideosByCategory(params.categoryId, params.page, params.perPage).toPromise();
       }
     }
   ]

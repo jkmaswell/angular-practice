@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Categories} from '../../../core/model/category/category.model';
+import {Category} from '../../../core/model/category/category.model';
 import {CategoryService} from '../../../core/service/category/category.service';
 
 @Component({
@@ -10,7 +10,7 @@ import {CategoryService} from '../../../core/service/category/category.service';
 
 export class NavComponent implements OnInit {
 
-  private categories: Categories[];
+  private categories: Category[];
 
   constructor(private categoryService: CategoryService) {}
 
@@ -20,7 +20,7 @@ export class NavComponent implements OnInit {
 
   loadInitialData() {
     this.categoryService.getAllCategories()
-      .subscribe((categories: Categories[]) => {
+      .subscribe((categories: Category[]) => {
         this.categories = categories;
       });
   }

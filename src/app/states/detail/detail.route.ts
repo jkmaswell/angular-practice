@@ -1,6 +1,6 @@
 import {DetailComponent} from './detail.component';
 import {Transition} from '@uirouter/angular';
-import {CategoryService} from '../../core/service/category/category.service';
+import {VideoService} from '../../core/service/video/video.service';
 
 export const state = {
   name: 'main.detail',
@@ -16,10 +16,10 @@ export const state = {
   resolve: [
     {
       token: 'categoryVideo',
-      deps: [Transition, CategoryService],
-      resolveFn: (transition: Transition, categoryService: CategoryService) => {
+      deps: [Transition, VideoService],
+      resolveFn: (transition: Transition, videoService: VideoService) => {
         const params = transition.params();
-        return categoryService.getVideoDetail(params.videoId).toPromise();
+        return videoService.getVideoDetail(params.videoId).toPromise();
       }
     }
   ]

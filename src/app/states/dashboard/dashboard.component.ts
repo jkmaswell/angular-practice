@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CategoryVideos} from '../../core/model/category/category.model';
+import {Video} from '../../core/model/video/video.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +8,7 @@ import {CategoryVideos} from '../../core/model/category/category.model';
 })
 export class DashboardComponent implements OnInit {
 
-  @Input() categoryVideos: CategoryVideos[];
+  @Input() categoryVideos: Video[];
 
   constructor() {
   }

@@ -5,6 +5,8 @@ import {UserService} from './service/user/user.service';
 import {HttpClientModule} from '@angular/common/http';
 import {CategoryResource} from './resource/category/category.resource';
 import {CategoryService} from './service/category/category.service';
+import {VideoResource} from './resource/video/video.resource';
+import {VideoService} from './service/video/video.service';
 
 @NgModule({
   imports: [
@@ -12,7 +14,7 @@ import {CategoryService} from './service/category/category.service';
     HttpClientModule
   ],
   declarations: [],
-  providers: [UserResource, UserService, CategoryResource, CategoryService]
+  providers: [UserResource, UserService, CategoryResource, CategoryService, VideoResource, VideoService]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
