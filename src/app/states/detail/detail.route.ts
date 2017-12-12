@@ -1,27 +1,25 @@
-import {DashboardComponent} from './dashboard.component';
+import {DetailComponent} from './detail.component';
 import {Transition} from '@uirouter/angular';
 import {CategoryService} from '../../core/service/category/category.service';
 
 export const state = {
-  name: 'main.dashboard',
-  url: '/category/:categoryId?page&perPage',
+  name: 'main.detail',
+  url: '/video/:videoId',
   views: {
     'content@': {
-      component: DashboardComponent
+      component: DetailComponent
     }
   },
   params: {
-    categoryId: 'animation',
-    page: '1',
-    perPage: '12'
+    videoId: null
   },
   resolve: [
     {
-      token: 'categoryVideos',
+      token: 'categoryVideo',
       deps: [Transition, CategoryService],
       resolveFn: (transition: Transition, categoryService: CategoryService) => {
         const params = transition.params();
-        return categoryService.getCategoryVideos(params.categoryId, params.page, params.perPage).toPromise();
+        return categoryService.getVideoDetail(params.videoId).toPromise();
       }
     }
   ]

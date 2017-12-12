@@ -1,4 +1,9 @@
-<p>
-  dashboard works!
-  {{categoryVideos[0].name}}
-</p>
+<ul>
+  <li *ngFor="let categoryVideo of categoryVideos">
+    <img [src]="categoryVideo.pictures.sizes[3].link">
+    <a uiSref="main.detail" [uiParams]="{videoId: categoryVideo.id}">
+      {{categoryVideo.name}}
+    </a>
+    {{categoryVideo.description}}
+  </li>
+</ul>
