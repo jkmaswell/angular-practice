@@ -1,0 +1,2 @@
+<input #searchQuery type="search" (keyup.enter)="search(searchQuery.value); searchQuery.value=''">
+<button (click)="search(searchQuery.value); searchQuery.value=''"></button>

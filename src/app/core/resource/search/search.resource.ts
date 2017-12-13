@@ -9,27 +9,20 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class VideoResource {
+export class SearchResource {
 
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
     this.http = http;
   }
 
-  getVideosByCategory(categoryId: string, page?: string, perPage?: string): Observable<Video[]> {
-    return this.http.get<any>(VimeoApiKey.vimeoBaseUrl + 'categories/' + categoryId + '/videos?page=' + page + '&per_page=' + perPage)
+  searchVideos(page?: string, perPage?: string, query?: string): Observable<Video[]> {
+    return this.http.get<any>(VimeoApiKey.vimeoBaseUrl + '/videos?page=' + page + '&per_page=' + perPage + '&query=' + query)
       .map(response => {
-        const categoryVideos: Video[] = [];
+        const searchVideos: Video[] = [];
         response.data.forEach(dto => {
-          categoryVideos.push(this.dtoToVideo(dto));
+          searchVideos.push(this.dtoToVideo(dto));
         });
-        return categoryVideos;
-      });
-  }
-
-  getVideoDetail(videoId: string): Observable<Video> {
-    return this.http.get<any>(VimeoApiKey.vimeoBaseUrl + 'videos/' + videoId)
-      .map(response => {
-        return this.dtoToVideo(response);
+        return searchVideos;
       });
   }
 
