@@ -1,5 +1,12 @@
-<ul>
-  <li *ngFor="let category of categories">
-    <a uiSref="main.dashboard" uiSrefActive="active" [uiParams]="{categoryId: category.id}">{{category.name}}</a>
-  </li>
-</ul>
+<div class="sidebar padding active">
+  <nav>
+    <div class="logo">
+      <img src="../../assets/images/vimeotest-logo.svg">
+    </div>
+    <ul class="nav">
+      <li *ngFor="let category of categories" uiSrefActive="active">
+        <a uiSref="main.dashboard" [uiParams]="{categoryId: category.id}">{{category.name}}</a>
+      </li>
+    </ul>
+  </nav>
+</div>

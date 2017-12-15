@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Video} from '../../core/model/video/video.model';
+import {Comment} from '../../core/model/comment/comment.model';
 
 @Component({
   selector: 'app-detail',
@@ -8,12 +9,14 @@ import {Video} from '../../core/model/video/video.model';
 })
 export class DetailComponent implements OnInit {
 
-  @Input() categoryVideo: Video;
+  @Input() video: Video;
+  @Input() comments: Comment;
 
   constructor() {
   }
 
   ngOnInit() {
+    console.log(this.comments);
   }
 
 }

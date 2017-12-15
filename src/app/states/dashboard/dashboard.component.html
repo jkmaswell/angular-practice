@@ -1,9 +1,17 @@
-<ul>
-  <li *ngFor="let categoryVideo of categoryVideos">
-    <img [src]="categoryVideo.pictures.sizes[3].link">
-    <a uiSref="main.detail" [uiParams]="{videoId: categoryVideo.id}">
-      {{categoryVideo.name}}
-    </a>
-    {{categoryVideo.description}}
-  </li>
-</ul>
+<section>
+  <main>
+    <div class="row">
+      <div *ngFor="let categoryVideo of categoryVideos" class="col-md-3 video">
+        <a uiSref="main.detail" [uiParams]="{videoId: categoryVideo.id}">
+          <figure>
+            <div class="image">
+              <img [src]="categoryVideo.pictures.sizes[3].link">
+              <div class="hover"></div>
+            </div>
+            <figcaption>{{categoryVideo.name}}</figcaption>
+          </figure>
+        </a>
+      </div>
+    </div>
+  </main>
+</section>

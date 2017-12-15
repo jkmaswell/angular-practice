@@ -1,0 +1,23 @@
+@import "../../commons/scss/variables";
+
+.register {
+  background: rgb(112, 97, 162);
+  background: linear-gradient(to bottom, rgba(112, 97, 162, 1) 0%, rgba(43, 33, 76, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7061a2', endColorstr='#2b214c', GradientType=0);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  .register-content {
+    position: fixed;
+    width: 15rem;
+    height: 13rem;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    h1 {
+      color: $vimeo-white;
+    }
+  }
+}

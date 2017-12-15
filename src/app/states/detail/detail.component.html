@@ -1,3 +1,38 @@
-<div [innerHTML]="categoryVideo.embed"></div>
-{{categoryVideo.name}}
-{{categoryVideo.description}}
+<section>
+  <main>
+    <div class="row">
+      <div class="col-md-12">
+        <div [innerHTML]="video.embed" class="player"></div>
+        <div class="stats">
+          <div class="plays">{{video.stats.plays | number}}</div>
+          <div class="likes">{{video.metadata.connections.likes.total | number}}</div>
+          <div class="comments">{{video.metadata.connections.comments.total | number}}</div>
+        </div>
+        <div class="info padding">
+          <div class="video-title">
+            <div class="user-img">
+              <img [src]="video.user.pictures.sizes[1].link" alt="">
+            </div>
+            <div class="title">
+              <h1>{{video.name}}</h1>
+              <p>of <span>{{video.user.name}}</span> | since
+                <span class="date">{{ video.release_time | amTimeAgo}}</span>
+              </p>
+            </div>
+          </div>
+          <div class="description">
+            {{video.description}}
+          </div>
+        </div>
+        <div class="comments">
+          <ul>
+            <li *ngFor="let comment of comments">
+              <span><strong>{{comment.user.name}}</strong> {{comment.text}}</span>
+              <span class="date">{{comment.created_on | amTimeAgo}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>

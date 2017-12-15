@@ -1,0 +1,51 @@
+@import "../../scss/variables";
+
+.header {
+  background: $vimeo-lightgray;
+  border-bottom: 1px solid $vimeo-gray;
+  padding: 25px 15px;
+  position: relative;
+  text-align: right;
+  .menu {
+    background: url("../../../../assets/images/vimeotest-assets.png") 0 0 no-repeat;
+    border: none;
+    display: none;
+    height: 26px;
+    left: 15px;
+    margin-top: -13px;
+    position: absolute;
+    top: 50%;
+    width: 37px;
+    @media screen and (max-width: 1024px) {
+      display: block;
+    }
+  }
+  .search {
+    display: inline-block;
+    position: relative;
+    input {
+      border: 1px solid $vimeo-gray;
+      border-radius: 50px;
+      color: $vimeo-darkergray;
+      font-size: 1.3rem;
+      height: 45px;
+      line-height: 4.5rem;
+      padding: 0 20px;
+      width: 300px;
+      @media screen and (max-width: 767px) {
+        width: 240px;
+      }
+    }
+    button {
+      background: url("../../../../assets/images/vimeotest-assets.png") 0 -26px no-repeat;
+      cursor: pointer;
+      height: 26px;
+      margin-top: -13px;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      width: 26px;
+      border: none;
+    }
+  }
+}

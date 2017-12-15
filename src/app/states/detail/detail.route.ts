@@ -15,11 +15,19 @@ export const state = {
   },
   resolve: [
     {
-      token: 'categoryVideo',
+      token: 'video',
       deps: [Transition, VideoService],
       resolveFn: (transition: Transition, videoService: VideoService) => {
         const params = transition.params();
         return videoService.getVideoDetail(params.videoId).toPromise();
+      }
+    },
+    {
+      token: 'comments',
+      deps: [Transition, VideoService],
+      resolveFn: (transition: Transition, videoService: VideoService) => {
+        const params = transition.params();
+        return videoService.getVideoComments(params.videoId).toPromise();
       }
     }
   ]

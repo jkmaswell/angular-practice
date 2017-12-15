@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {VimeoApiKey} from '../../core.constants';
 import {Video} from '../../model/video/video.model';
+import {Comment} from '../../model/comment/comment.model';
 import {DomSanitizer} from '@angular/platform-browser';
 
 // Import RxJs required methods
@@ -30,6 +31,17 @@ export class VideoResource {
     return this.http.get<any>(VimeoApiKey.vimeoBaseUrl + 'videos/' + videoId)
       .map(response => {
         return this.dtoToVideo(response);
+      });
+  }
+
+  getVideoComments(videoId: string): Observable<Comment[]> {
+    return this.http.get<any>(VimeoApiKey.vimeoBaseUrl + 'videos/' + videoId + '/comments')
+      .map(response => {
+        const videoComments: Comment[] = [];
+        response.data.forEach(dto => {
+          videoComments.push(new Comment(dto.text, dto.created_on, dto.user));
+        });
+        return videoComments;
       });
   }
 

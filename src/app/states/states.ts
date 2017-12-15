@@ -3,5 +3,6 @@ import {state as DashboardRoute} from './dashboard/dashboard.route';
 import {state as UsersRoute} from './users/users.route';
 import {state as DetailRoute} from './detail/detail.route';
 import {state as SearchRoute} from './search/search.route';
+import {state as RegisterRoute} from './register/register.route';
 
-export const STATES = [MainRoute, DashboardRoute, DetailRoute, SearchRoute, UsersRoute];
+export const STATES = [MainRoute, DashboardRoute, DetailRoute, SearchRoute, UsersRoute, RegisterRoute];

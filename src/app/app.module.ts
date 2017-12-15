@@ -12,6 +12,8 @@ import {GeneralInterceptor} from './app.interceptor';
 import { NavComponent } from './commons/component/nav/nav.component';
 import { DetailComponent } from './states/detail/detail.component';
 import { HeaderComponent } from './commons/component/header/header.component';
+import { MomentModule } from 'angular2-moment';
+import { RegisterComponent } from './states/register/register.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { HeaderComponent } from './commons/component/header/header.component';
     UsersComponent,
     NavComponent,
     DetailComponent,
-    HeaderComponent
+    HeaderComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { HeaderComponent } from './commons/component/header/header.component';
       useHash: false,
       config: uiRouterConfigFn
     }),
-    CoreModule
+    CoreModule,
+    MomentModule
   ],
   providers: [
     {

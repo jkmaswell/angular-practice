@@ -1,0 +1,160 @@
+@import "../../commons/scss/variables";
+
+main {
+  display: inline-block;
+  padding-left: 322px;
+  width: 100%;
+  .player {
+    background: $vimeo-black;
+    height: 0;
+    padding-bottom: 540px / 1280px * 100%;
+    position: relative;
+  }
+  .stats {
+    border-bottom: 1px solid $vimeo-lightgray;
+    padding: 15px;
+    text-align: right;
+
+    @media screen and (max-width: 767px) {
+      text-align: center;
+    }
+
+    .plays,
+    .likes,
+    .comments {
+      color: $vimeo-middlegray;
+      display: inline-block;
+      font-family: $arial;
+      font-size: 1.5rem;
+      line-height: 1rem;
+      margin-left: 10px;
+      vertical-align: middle;
+
+      @media screen and (max-width: 767px) {
+        margin: 0 20px;
+      }
+
+      &::before {
+        background: $assets no-repeat;
+        content: "";
+        display: inline-block;
+        margin-right: 5px;
+        vertical-align: middle;
+      }
+    }
+
+    .plays {
+      &::before {
+        background-position: -37px 0;
+        height: 13px;
+        width: 14px;
+      }
+    }
+
+    .likes {
+      &::before {
+        background-position: -37px -13px;
+        height: 12px;
+        width: 16px;
+      }
+    }
+
+    .comments {
+      &::before {
+        background-position: -37px -40px;
+        height: 13px;
+        width: 15px;
+      }
+    }
+  }
+  .info {
+    padding: 3rem;
+    .video-title {
+      margin-bottom: 20px;
+      @media screen and (max-width: 767px) {
+        margin-bottom: 40px;
+        margin-top: 20px;
+      }
+      .user-img,
+      .title {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .user-img {
+        border-radius: 50%;
+        margin-right: 20px;
+        overflow: hidden;
+        width: 75px;
+        @media screen and (max-width: 767px) {
+          display: none;
+        }
+      }
+      .title {
+        width: calc(100% - 100px);
+        h1 {
+          color: $vimeo-purple;
+          font-size: 4.9rem;
+          font-weight: 700;
+          margin: 0;
+
+          @media screen and (max-width: 767px) {
+            font-size: 3rem;
+          }
+        }
+
+        p {
+          color: $vimeo-softdarkgray;
+          font-size: 1.8rem;
+          margin: 0;
+
+          @media screen and (max-width: 767px) {
+            font-size: 1.4rem;
+          }
+
+          span {
+            color: $vimeo-darkergray;
+            font-weight: 700;
+
+            &.date {
+              color: $vimeo-softdarkgray;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
+    .description {
+      color: $vimeo-darkergray;
+      font-size: 1.8rem;
+      @media screen and (max-width: 767px) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .comments {
+    ul {
+      list-style: none;
+      padding: 3rem;
+      li {
+        padding: 1rem 0;
+        border-bottom: 1px solid $vimeo-middlegray;
+        span {
+          display: block;
+          color: $vimeo-darkergray;
+          font-size: 1.8rem;
+          strong {
+            color: $vimeo-purple;
+          }
+          &.date {
+            color: $vimeo-middlegray;
+            font-size: 1.2rem;
+            font-style: italic;
+          }
+        }
+        &:first-child {
+          border-top: 1px solid $vimeo-middlegray;
+        }
+      }
+    }
+  }
+}

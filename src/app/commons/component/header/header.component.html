@@ -1,2 +1,9 @@
-<input #searchQuery type="search" (keyup.enter)="search(searchQuery.value); searchQuery.value=''">
-<button (click)="search(searchQuery.value); searchQuery.value=''"></button>
+<header>
+  <div class="header">
+    <button class="menu"></button>
+    <div class="search">
+      <input #searchQuery type="search" (keyup.enter)="search(searchQuery.value); searchQuery.value=''">
+      <button (click)="search(searchQuery.value); searchQuery.value=''"></button>
+    </div>
+  </div>
+</header>
