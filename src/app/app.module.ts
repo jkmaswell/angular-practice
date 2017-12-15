@@ -9,11 +9,12 @@ import {UsersComponent} from './states/users/users.component';
 import {CoreModule} from './core/core.module';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {GeneralInterceptor} from './app.interceptor';
-import { NavComponent } from './commons/component/nav/nav.component';
-import { DetailComponent } from './states/detail/detail.component';
-import { HeaderComponent } from './commons/component/header/header.component';
-import { MomentModule } from 'angular2-moment';
-import { RegisterComponent } from './states/register/register.component';
+import {NavComponent} from './commons/component/nav/nav.component';
+import {DetailComponent} from './states/detail/detail.component';
+import {HeaderComponent} from './commons/component/header/header.component';
+import {MomentModule} from 'angular2-moment';
+import {RegisterComponent} from './states/register/register.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RegisterComponent } from './states/register/register.component';
       config: uiRouterConfigFn
     }),
     CoreModule,
-    MomentModule
+    MomentModule,
+    FormsModule
   ],
   providers: [
     {

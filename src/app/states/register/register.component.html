@@ -1,5 +1,29 @@
 <div class="register">
   <div class="register-content">
-    <h1>register works!</h1>
+    <h1>Register</h1>
+    <form (ngSubmit)="register()">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input class="form-control" type="text" id="firstName" [(ngModel)]="user.firstName" name="firstName">
+      </div>
+      <div class="form-group">
+        <label for="middleName">Middle Name</label>
+        <input class="form-control" #middleName type="text" id="middleName" [(ngModel)]="user.middleName" name="middleName">
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input class="form-control" #lastName type="text" id="lastName" [(ngModel)]="user.lastName" name="lastName">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" #email type="email" id="email" [(ngModel)]="user.email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" #password type="password" id="password" [(ngModel)]="user.password" name="password">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="button" class="btn btn-default">Go To Login</button>
+    </form>
   </div>
 </div>
