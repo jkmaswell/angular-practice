@@ -15,6 +15,7 @@ import {HeaderComponent} from './commons/component/header/header.component';
 import {MomentModule} from 'angular2-moment';
 import {RegisterComponent} from './states/register/register.component';
 import {FormsModule} from '@angular/forms';
+import {LoginComponent} from './states/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {FormsModule} from '@angular/forms';
     NavComponent,
     DetailComponent,
     HeaderComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

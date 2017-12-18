@@ -1,10 +1,10 @@
 export class User {
 
-  constructor(private _firstName: string,
-              private _middleName: string,
-              private _lastName: string,
-              private _email: string,
-              private _password: string) {
+  constructor(private _email: string,
+              private _password: string,
+              private _firstName?: string,
+              private _middleName?: string,
+              private _lastName?: string) {
   }
 
   get firstName(): string {

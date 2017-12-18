@@ -12,4 +12,12 @@ export class UserService {
   createUser(user: User): Observable<User> {
     return this.userResource.createUser(user);
   }
+
+  getUser(): Observable<User> {
+    return this.userResource.getUser();
+  }
+
+  loginUser(user: User): Observable<User> {
+    return this.userResource.loginUser(user);
+  }
 }
