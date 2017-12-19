@@ -6,7 +6,7 @@ import {Injector, Injectable} from '@angular/core';
 export function uiRouterConfigFn(router: UIRouter, injector: Injector) {
 
   // If no URL matches, go to the `hello` state by default
-  router.urlService.rules.otherwise({ state: 'main.dashboard' });
+  router.urlService.rules.otherwise({ state: 'login' });
 
   // Use ui-router-visualizer to show the states as a tree
   // and transitions as a timeline

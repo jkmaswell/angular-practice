@@ -20,4 +20,9 @@ export class UserService {
   loginUser(user: User): Observable<User> {
     return this.userResource.loginUser(user);
   }
+
+  logoutUser(): Observable<any> {
+    return this.userResource.logoutUser();
+  }
+
 }

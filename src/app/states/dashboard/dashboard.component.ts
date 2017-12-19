@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Video} from '../../core/model/video/video.model';
+import {User} from '../../core/model/user/user.model';
 
 @Component({
   selector: 'app-dashboard',

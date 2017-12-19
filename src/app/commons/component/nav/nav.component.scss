@@ -43,7 +43,12 @@
         cursor: pointer;
         font-size: 2rem;
         padding: 0;
+        opacity: 0.5;
+        background: none;
         text-decoration: none;
+        &:hover {
+          background: none;
+        }
       }
       &::before {
         background: $vimeo-white;
@@ -59,6 +64,7 @@
       &.active {
         a {
           font-weight: 700;
+          opacity: 1;
         }
         &::before {
           opacity: 1;
@@ -69,7 +75,6 @@
   &.deactive {
     animation: close 0.3s 1;
     left: -322px;
-
     @keyframes close {
       0% {
         left: 0;
@@ -83,6 +88,30 @@
     animation: open 0.3s 1;
     left: 0;
 
+    @keyframes open {
+      0% {
+        left: -322px;
+      }
+      100% {
+        left: 0;
+      }
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    animation: close 0.3s 1;
+    left: -322px;
+    @keyframes close {
+      0% {
+        left: 0;
+      }
+      100% {
+        left: -322px;
+      }
+    }
+  }
+  @media screen and (min-width: 1025px) {
+    animation: open 0.3s 1;
+    left: 0;
     @keyframes open {
       0% {
         left: -322px;

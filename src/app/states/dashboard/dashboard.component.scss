@@ -26,6 +26,9 @@ main {
         clear: both;
       }
     }
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
   }
   .video {
     margin-top: 2rem;
@@ -90,5 +93,8 @@ main {
         }
       }
     }
+  }
+  @media screen and (max-width: 1024px) {
+    padding-left: 0;
   }
 }

@@ -4,6 +4,7 @@
   background: $vimeo-lightgray;
   border-bottom: 1px solid $vimeo-gray;
   padding: 25px 15px;
+  margin-left: 322px;
   position: relative;
   text-align: right;
   .menu {
@@ -19,6 +20,15 @@
     @media screen and (max-width: 1024px) {
       display: block;
     }
+  }
+  .userName {
+    color: $vimeo-purple;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    font-weight: 500;
   }
   .search {
     display: inline-block;
@@ -47,5 +57,8 @@
       width: 26px;
       border: none;
     }
+  }
+  @media screen and (max-width: 1024px) {
+    margin-left: 0;
   }
 }

@@ -1,6 +1,7 @@
 import {DetailComponent} from './detail.component';
-import {Transition} from '@uirouter/angular';
+import {StateService, Transition} from '@uirouter/angular';
 import {VideoService} from '../../core/service/video/video.service';
+import {UserService} from '../../core/service/user/user.service';
 
 export const state = {
   name: 'main.detail',
@@ -14,6 +15,17 @@ export const state = {
     videoId: null
   },
   resolve: [
+    {
+      token: 'currentUser',
+      deps: [UserService, StateService],
+      resolveFn: (userService: UserService, stateService: StateService) => {
+        return userService.getUser().toPromise().then(currentUser => {
+          if (!currentUser) {
+            stateService.go('login');
+          }
+        });
+      }
+    },
     {
       token: 'video',
       deps: [Transition, VideoService],

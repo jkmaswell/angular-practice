@@ -22,7 +22,10 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.userService.loginUser(this.user).subscribe(() => {
+      alert('User logged successfully!');
       this.stateService.go('main.dashboard');
+    }, error => {
+      alert(error);
     });
   }
 

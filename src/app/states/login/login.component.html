@@ -1,14 +1,17 @@
 <div class="login">
   <div class="login-content">
     <h1>Login</h1>
-    <form (ngSubmit)="login()">
-      <div class="form-group">
+    <form (ngSubmit)="loginForm.valid && login()" name="loginForm" #loginForm="ngForm" novalidate>
+      <div class="form-group" [ngClass]="{'has-error': !email.valid && loginForm.submitted}">
         <label for="email">Email</label>
-        <input class="form-control" #email type="email" id="email" [(ngModel)]="user.email" name="email">
+        <input class="form-control" #email type="email" id="email" [(ngModel)]="user.email" name="email" required>
+        <div *ngIf="loginForm.submitted && !email.valid" class="help-block small">Email is required</div>
       </div>
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{'has-error': !password.valid && loginForm.submitted}">
         <label for="password">Password</label>
-        <input class="form-control" #password type="password" id="password" [(ngModel)]="user.password" name="password">
+        <input class="form-control" #password type="password" id="password" [(ngModel)]="user.password"
+               name="password" required>
+        <div *ngIf="loginForm.submitted && !password.valid" class="help-block small">Password is required</div>
       </div>
       <button type="submit" class="btn btn-primary">Login</button>
       <button type="button" class="btn btn-default" (click)="goToRegister()">Go To Register</button>

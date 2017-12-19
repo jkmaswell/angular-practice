@@ -1,4 +1,4 @@
-<div class="sidebar padding active">
+<div class="sidebar padding">
   <nav>
     <div class="logo">
       <img src="../../assets/images/vimeotest-logo.svg">
@@ -9,4 +9,8 @@
       </li>
     </ul>
   </nav>
+  <div class="userName">
+    Welcome {{currentUser.firstName}}
+    <button (click)="logout()" class="btn btn-default">Logout</button>
+  </div>
 </div>

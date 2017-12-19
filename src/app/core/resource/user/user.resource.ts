@@ -41,14 +41,19 @@ export class UserResource {
       for (let i = 0; i < users.length; i++) {
         const userFiltered = users[i];
         if (userFiltered.email === currentUser.email && userFiltered.password === currentUser.password) {
-          localStorage.setItem('currentUser', JSON.stringify(currentUser));
-          return (Observable.of(currentUser));
+          localStorage.setItem('currentUser', JSON.stringify(userFiltered));
+          return (Observable.of(userFiltered));
         }
       }
       return (Observable.throw(new Error('Email or Password Not Valid')));
     } else {
       return (Observable.throw(new Error('User Not Exist')));
     }
+  }
+
+  logoutUser(): Observable<any> {
+    localStorage.removeItem('currentUser');
+    return (Observable.of('User Logged Out'));
   }
 
 }

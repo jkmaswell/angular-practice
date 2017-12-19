@@ -10,7 +10,6 @@ import {StateService} from '@uirouter/angular';
 export class RegisterComponent implements OnInit {
 
   user: any = {};
-  successRegistry = false;
 
   constructor(private userService: UserService,
               private stateService: StateService) {
@@ -22,11 +21,15 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.userService.createUser(this.user).subscribe(response => {
-      if (response) {
-        this.successRegistry = true;
-      }
-      console.log(response);
+    this.userService.createUser(this.user).subscribe(user => {
+      this.userService.loginUser(user).subscribe(() => {
+        alert('User created successfully!');
+        this.stateService.go('main.dashboard');
+      }, error => {
+        alert(error);
+      });
+    }, error => {
+      alert(error);
     });
   }
 

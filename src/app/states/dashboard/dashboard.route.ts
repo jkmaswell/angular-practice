@@ -19,11 +19,11 @@ export const state = {
   },
   resolve: [
     {
-      token: 'isLogged',
+      token: 'currentUser',
       deps: [UserService, StateService],
       resolveFn: (userService: UserService, stateService: StateService) => {
-        return userService.getUser().toPromise().then(response => {
-          if (!response) {
+        return userService.getUser().toPromise().then(currentUser => {
+          if (!currentUser) {
             stateService.go('login');
           }
         });
