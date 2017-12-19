@@ -1,6 +1,7 @@
 import {DashboardComponent} from '../dashboard/dashboard.component';
-import {Transition} from '@uirouter/angular';
+import {StateService, Transition} from '@uirouter/angular';
 import {SearchService} from '../../core/service/search/search.service';
+import {UserService} from '../../core/service/user/user.service';
 
 export const state = {
   name: 'main.search',
@@ -16,6 +17,17 @@ export const state = {
     query: 'animation'
   },
   resolve: [
+    {
+      token: 'currentUser',
+      deps: [UserService, StateService],
+      resolveFn: (userService: UserService, stateService: StateService) => {
+        return userService.getUser().toPromise().then(currentUser => {
+          if (!currentUser) {
+            stateService.go('login');
+          }
+        });
+      }
+    },
     {
       token: 'categoryVideos',
       deps: [Transition, SearchService],
