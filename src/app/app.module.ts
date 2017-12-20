@@ -16,6 +16,10 @@ import {MomentModule} from 'angular2-moment';
 import {RegisterComponent} from './states/register/register.component';
 import {FormsModule} from '@angular/forms';
 import {LoginComponent} from './states/login/login.component';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {translateLoader} from './config/multi-translate-http-loader';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,16 @@ import {LoginComponent} from './states/login/login.component';
     }),
     CoreModule,
     MomentModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: translateLoader,
+        deps: [HttpClient]
+      }
+    }),
+    NgbModule.forRoot()
   ],
   providers: [
     {

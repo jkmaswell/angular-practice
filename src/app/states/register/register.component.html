@@ -1,32 +1,34 @@
 <div class="register">
   <div class="register-content">
-    <h1>Register</h1>
+    <h1 [translate]="'REGISTER.TITLE'"></h1>
     <form (ngSubmit)="registerForm.valid && register()" name="registerForm" #registerForm="ngForm" novalidate>
       <div class="form-group">
-        <label for="firstName">First Name</label>
+        <label for="firstName" [translate]="'REGISTER.FIRST_NAME'"></label>
         <input class="form-control" type="text" id="firstName" [(ngModel)]="user.firstName" name="firstName">
       </div>
       <div class="form-group">
-        <label for="middleName">Middle Name</label>
+        <label for="middleName" [translate]="'REGISTER.MIDDLE_NAME'"></label>
         <input class="form-control" #middleName type="text" id="middleName" [(ngModel)]="user.middleName" name="middleName">
       </div>
       <div class="form-group">
-        <label for="lastName">Last Name</label>
+        <label for="lastName" [translate]="'REGISTER.LAST_NAME'"></label>
         <input class="form-control" #lastName type="text" id="lastName" [(ngModel)]="user.lastName" name="lastName">
       </div>
       <div class="form-group" [ngClass]="{'has-error': !email.valid && registerForm.submitted}">
-        <label for="email">Email</label>
+        <label for="email" [translate]="'REGISTER.EMAIL'"></label>
         <input class="form-control" #email type="email" id="email" [(ngModel)]="user.email" name="email" required>
-        <div *ngIf="registerForm.submitted && !email.valid" class="help-block small">Email is required</div>
+        <div *ngIf="registerForm.submitted && !email.valid" class="help-block small"
+             [translate]="'REGISTER.EMAIL_REQUIRED'"></div>
       </div>
       <div class="form-group" [ngClass]="{'has-error': !password.valid && registerForm.submitted}">
-        <label for="password">Password</label>
+        <label for="password" [translate]="'REGISTER.PASSWORD'"></label>
         <input class="form-control" #password type="password" id="password" [(ngModel)]="user.password"
                name="password" required>
-        <div *ngIf="registerForm.submitted && !password.valid" class="help-block small">Password is required</div>
+        <div *ngIf="registerForm.submitted && !password.valid" class="help-block small"
+             [translate]="'REGISTER.PASSWORD_REQUIRED'"></div>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-      <button type="button" class="btn btn-default" (click)="goToLogin()">Go To Login</button>
+      <button type="submit" class="btn btn-primary" [translate]="'REGISTER.REGISTER'"></button>
+      <button type="button" class="btn btn-default" (click)="goToLogin()" [translate]="'REGISTER.GO_TO_LOGIN'"></button>
     </form>
   </div>
 </div>

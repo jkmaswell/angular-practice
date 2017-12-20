@@ -13,5 +13,11 @@
         </a>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-12 pagination-container">
+        <ngb-pagination [collectionSize]="totalVideos" [(page)]="page" [maxSize]="maxSize"
+                        aria-label="Default pagination" (pageChange)="changePage()"></ngb-pagination>
+      </div>
+    </div>
   </main>
 </section>

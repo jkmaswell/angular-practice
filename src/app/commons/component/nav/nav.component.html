@@ -3,14 +3,14 @@
     <div class="logo">
       <img src="../../assets/images/vimeotest-logo.svg">
     </div>
+    <div class="userName">
+      {{'NAV.WELCOME' | translate}} {{currentUser.firstName}}
+    </div>
     <ul class="nav">
       <li *ngFor="let category of categories" uiSrefActive="active">
-        <a uiSref="main.dashboard" [uiParams]="{categoryId: category.id}">{{category.name}}</a>
+        <a uiSref="main.dashboard" [uiParams]="{categoryId: category.id, page: '1'}">{{category.name}}</a>
       </li>
     </ul>
+    <button (click)="logout()" class="btn btn-default" [translate]="'NAV.LOGOUT'"></button>
   </nav>
-  <div class="userName">
-    Welcome {{currentUser.firstName}}
-    <button (click)="logout()" class="btn btn-default">Logout</button>
-  </div>
 </div>

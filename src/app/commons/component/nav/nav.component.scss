@@ -11,6 +11,7 @@
   position: fixed;
   width: 322px;
   z-index: 1;
+  overflow-y: scroll;
   .close-btn {
     background: none;
     border: none;
@@ -31,9 +32,15 @@
       max-width: 80%;
     }
   }
+  .userName {
+    color: $vimeo-white;
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
   ul {
     list-style: none;
-    padding: 0;
+    padding: 0 0 2rem;
     li {
       margin-bottom: 10px;
       padding-left: 20px;

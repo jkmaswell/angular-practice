@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {UserService} from '../../core/service/user/user.service';
 import {StateService} from '@uirouter/angular';
 
@@ -7,17 +7,12 @@ import {StateService} from '@uirouter/angular';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   user: any = {};
 
   constructor(private userService: UserService,
               private stateService: StateService) {
-    this.userService = userService;
-    this.stateService = stateService;
-  }
-
-  ngOnInit() {
   }
 
   login() {

@@ -1,0 +1,14 @@
+{
+  "REGISTER": {
+    "TITLE": "Register",
+    "FIRST_NAME": "First Name",
+    "MIDDLE_NAME": "Middle Name",
+    "LAST_NAME": "Last Name",
+    "EMAIL": "Email",
+    "EMAIL_REQUIRED": "Email is required",
+    "PASSWORD": "Password",
+    "PASSWORD_REQUIRED": "Password is required",
+    "REGISTER": "Register",
+    "GO_TO_LOGIN": "Go To Login"
+  }
+}

@@ -16,11 +16,20 @@ export class VideoResource {
     this.http = http;
   }
 
+  getTotalVideosByCategory(categoryId: string, page?: string, perPage?: string): Observable<any> {
+    return this.http.get<any>(VimeoApiKey.vimeoBaseUrl + 'categories/' + categoryId + '/videos?page=' + page + '&per_page=' + perPage)
+      .map(response => {
+        return response.total;
+      });
+  }
+
   getVideosByCategory(categoryId: string, page?: string, perPage?: string): Observable<Video[]> {
     return this.http.get<any>(VimeoApiKey.vimeoBaseUrl + 'categories/' + categoryId + '/videos?page=' + page + '&per_page=' + perPage)
       .map(response => {
         const categoryVideos: Video[] = [];
+        const totalVideos = response.total;
         response.data.forEach(dto => {
+          dto.total = totalVideos;
           categoryVideos.push(this.dtoToVideo(dto));
         });
         return categoryVideos;

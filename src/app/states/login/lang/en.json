@@ -1,0 +1,11 @@
+{
+  "LOGIN": {
+    "TITLE": "Login",
+    "EMAIL": "Email",
+    "EMAIL_REQUIRED": "Email is required",
+    "PASSWORD": "Password",
+    "PASSWORD_REQUIRED": "Password is required",
+    "LOGIN": "Login",
+    "GO_TO_REGISTER": "Go To Register"
+  }
+}

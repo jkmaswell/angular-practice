@@ -1,8 +1,7 @@
 import {DashboardComponent} from './dashboard.component';
-import {Transition} from '@uirouter/angular';
 import {VideoService} from '../../core/service/video/video.service';
 import {UserService} from '../../core/service/user/user.service';
-import {StateService} from '@uirouter/angular';
+import {StateService, Transition} from '@uirouter/angular';
 
 export const state = {
   name: 'main.dashboard',
@@ -35,6 +34,14 @@ export const state = {
       resolveFn: (transition: Transition, videoService: VideoService) => {
         const params = transition.params();
         return videoService.getVideosByCategory(params.categoryId, params.page, params.perPage).toPromise();
+      }
+    },
+    {
+      token: 'totalVideos',
+      deps: [Transition, VideoService],
+      resolveFn: (transition: Transition, videoService: VideoService) => {
+        const params = transition.params();
+        return videoService.getTotalVideosByCategory(params.categoryId, params.page, params.perPage).toPromise();
       }
     }
   ]

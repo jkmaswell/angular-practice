@@ -10,6 +10,10 @@ export class VideoService {
   constructor(private videoResource: VideoResource) {
   }
 
+  getTotalVideosByCategory(categoryId: string, page?: string, perPage?: string): Observable<any> {
+    return this.videoResource.getTotalVideosByCategory(categoryId, page, perPage);
+  }
+
   getVideosByCategory(categoryId: string, page?: string, perPage?: string): Observable<Video[]> {
     return this.videoResource.getVideosByCategory(categoryId, page, perPage);
   }

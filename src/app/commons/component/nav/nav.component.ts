@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Category} from '../../../core/model/category/category.model';
 import {CategoryService} from '../../../core/service/category/category.service';
+import {UserService} from '../../../core/service/user/user.service';
+import {User} from '../../../core/model/user/user.model';
+import {StateService} from "@uirouter/angular";
 
 @Component({
   selector: 'app-nav',
@@ -10,9 +13,14 @@ import {CategoryService} from '../../../core/service/category/category.service';
 
 export class NavComponent implements OnInit {
 
-  private categories: Category[];
+  currentUser: User;
 
-  constructor(private categoryService: CategoryService) {}
+  categories: Category[];
+
+  constructor(private categoryService: CategoryService,
+              private userService: UserService,
+              private stateService: StateService) {
+  }
 
   ngOnInit() {
     this.loadInitialData();
@@ -23,6 +31,16 @@ export class NavComponent implements OnInit {
       .subscribe((categories: Category[]) => {
         this.categories = categories;
       });
+    this.userService.getUser().subscribe(user => {
+      this.currentUser = user;
+    });
+  }
+
+  logout(): void {
+    this.userService.logoutUser().subscribe(response => {
+      alert(response);
+      this.stateService.go('login');
+    });
   }
 
 }

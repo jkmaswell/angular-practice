@@ -1,20 +1,20 @@
 <div class="login">
   <div class="login-content">
-    <h1>Login</h1>
+    <h1 [translate]="'LOGIN.TITLE'"></h1>
     <form (ngSubmit)="loginForm.valid && login()" name="loginForm" #loginForm="ngForm" novalidate>
       <div class="form-group" [ngClass]="{'has-error': !email.valid && loginForm.submitted}">
-        <label for="email">Email</label>
+        <label for="email" [translate]="'LOGIN.EMAIL'"></label>
         <input class="form-control" #email type="email" id="email" [(ngModel)]="user.email" name="email" required>
-        <div *ngIf="loginForm.submitted && !email.valid" class="help-block small">Email is required</div>
+        <div *ngIf="loginForm.submitted && !email.valid" class="help-block small" [translate]="'LOGIN.EMAIL_REQUIRED'"></div>
       </div>
       <div class="form-group" [ngClass]="{'has-error': !password.valid && loginForm.submitted}">
-        <label for="password">Password</label>
+        <label for="password" [translate]="'LOGIN.PASSWORD'"></label>
         <input class="form-control" #password type="password" id="password" [(ngModel)]="user.password"
                name="password" required>
-        <div *ngIf="loginForm.submitted && !password.valid" class="help-block small">Password is required</div>
+        <div *ngIf="loginForm.submitted && !password.valid" class="help-block small" [translate]="'LOGIN.PASSWORD_REQUIRED'"></div>
       </div>
-      <button type="submit" class="btn btn-primary">Login</button>
-      <button type="button" class="btn btn-default" (click)="goToRegister()">Go To Register</button>
+      <button type="submit" class="btn btn-primary" [translate]="'LOGIN.LOGIN'"></button>
+      <button type="button" class="btn btn-default" (click)="goToRegister()" [translate]="'LOGIN.GO_TO_REGISTER'"></button>
     </form>
   </div>
 </div>

@@ -1,19 +1,32 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Video} from '../../core/model/video/video.model';
-import {User} from '../../core/model/user/user.model';
+import {StateService, Transition} from '@uirouter/angular';
+import {VimeoApiKey} from '../../core/core.constants';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
+
+  total = '';
+  page = '';
+  maxSize;
+  perPage;
 
   @Input() categoryVideos: Video[];
+  @Input() totalVideos: any;
 
-  constructor() {
+  constructor(private transition: Transition,
+              private stateService: StateService) {
+    this.page = transition.params().page;
+    this.maxSize = VimeoApiKey.max_size;
+    this.perPage = VimeoApiKey.per_page;
   }
 
-  ngOnInit() {
+  changePage() {
+    this.stateService.go('.', {page: this.page});
   }
+
 }

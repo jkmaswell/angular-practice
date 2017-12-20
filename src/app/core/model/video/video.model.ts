@@ -1,7 +1,6 @@
 import {SafeHtml} from '@angular/platform-browser';
 
 export class Video {
-
   private _id: string;
 
   constructor(private _name: string,
