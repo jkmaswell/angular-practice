@@ -41,3 +41,18 @@ iframe {
     padding: 20px;
   }
 }
+.pagination {
+  margin: 40px 0;
+  .page-item {
+    .page-link {
+      color: $vimeo-purple;
+    }
+    &.active {
+      > a {
+        background: $vimeo-purple;
+        border-color: $vimeo-purple;
+        color: $vimeo-white;
+      }
+    }
+  }
+}

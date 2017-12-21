@@ -132,6 +132,12 @@ main {
     }
   }
   .comments {
+    .comments-title {
+      color: $vimeo-purple;
+      font-size: 4rem;
+      padding: 0 3rem;
+      margin-bottom: 2rem;
+    }
     ul {
       list-style: none;
       padding: 3rem;

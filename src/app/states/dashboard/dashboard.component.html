@@ -15,8 +15,9 @@
     </div>
     <div class="row">
       <div class="col-md-12 pagination-container">
-        <ngb-pagination [collectionSize]="totalVideos" [(page)]="page" [maxSize]="maxSize"
-                        aria-label="Default pagination" (pageChange)="changePage()"></ngb-pagination>
+        <ngb-pagination [collectionSize]="totalVideos" [(page)]="page" [maxSize]="maxSize" [pageSize]="perPage"
+                        [boundaryLinks]=true aria-label="Default pagination"
+                        (pageChange)="changePage()"></ngb-pagination>
       </div>
     </div>
   </main>

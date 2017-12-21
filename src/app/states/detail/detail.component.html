@@ -25,6 +25,7 @@
           </div>
         </div>
         <div class="comments">
+          <h2 [translate]="'DETAIL.COMMENTS'" class="comments-title"></h2>
           <ul>
             <li *ngFor="let comment of comments">
               <span><strong>{{comment.user.name}}</strong> {{comment.text}}</span>

@@ -5,7 +5,6 @@ import {uiRouterConfigFn} from './config/router.config';
 import {AppComponent} from './app.component';
 import {STATES} from './states/states';
 import {DashboardComponent} from './states/dashboard/dashboard.component';
-import {UsersComponent} from './states/users/users.component';
 import {CoreModule} from './core/core.module';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {GeneralInterceptor} from './app.interceptor';
@@ -25,7 +24,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     AppComponent,
     DashboardComponent,
-    UsersComponent,
     NavComponent,
     DetailComponent,
     HeaderComponent,
