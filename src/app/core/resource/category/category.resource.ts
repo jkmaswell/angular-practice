@@ -22,6 +22,8 @@ export class CategoryResource {
           categories.push(new Category(dto.uri, dto.name, dto.link));
         });
         return categories;
+      }, () => {
+        return (Observable.throw(new Error('Server Error')));
       });
   }
 }

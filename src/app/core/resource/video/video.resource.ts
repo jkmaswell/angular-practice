@@ -20,6 +20,8 @@ export class VideoResource {
     return this.http.get<any>(VimeoApiKey.vimeoBaseUrl + 'categories/' + categoryId + '/videos?page=' + page + '&per_page=' + perPage)
       .map(response => {
         return response.total;
+      }, () => {
+        return (Observable.throw(new Error('Server Error')));
       });
   }
 
@@ -33,6 +35,8 @@ export class VideoResource {
           categoryVideos.push(this.dtoToVideo(dto));
         });
         return categoryVideos;
+      }, () => {
+        return (Observable.throw(new Error('Server Error')));
       });
   }
 
@@ -40,6 +44,8 @@ export class VideoResource {
     return this.http.get<any>(VimeoApiKey.vimeoBaseUrl + 'videos/' + videoId)
       .map(response => {
         return this.dtoToVideo(response);
+      }, () => {
+        return (Observable.throw(new Error('Server Error')));
       });
   }
 
@@ -51,6 +57,8 @@ export class VideoResource {
           videoComments.push(new Comment(dto.text, dto.created_on, dto.user));
         });
         return videoComments;
+      }, () => {
+        return (Observable.throw(new Error('Server Error')));
       });
   }
 

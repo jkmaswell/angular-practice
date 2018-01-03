@@ -3,7 +3,7 @@ import {Category} from '../../../core/model/category/category.model';
 import {CategoryService} from '../../../core/service/category/category.service';
 import {UserService} from '../../../core/service/user/user.service';
 import {User} from '../../../core/model/user/user.model';
-import {StateService} from "@uirouter/angular";
+import {StateService} from '@uirouter/angular';
 
 @Component({
   selector: 'app-nav',

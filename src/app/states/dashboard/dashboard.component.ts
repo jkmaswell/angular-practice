@@ -8,9 +8,9 @@ import {VimeoApiKey} from '../../core/core.constants';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+
 export class DashboardComponent {
 
-  total = '';
   page = '';
   maxSize;
   perPage;

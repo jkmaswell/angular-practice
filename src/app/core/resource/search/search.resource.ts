@@ -16,13 +16,15 @@ export class SearchResource {
   }
 
   searchVideos(page?: string, perPage?: string, query?: string): Observable<Video[]> {
-    return this.http.get<any>(VimeoApiKey.vimeoBaseUrl + '/videos?page=' + page + '&per_page=' + perPage + '&query=' + query)
+    return this.http.get<any>(VimeoApiKey.vimeoBaseUrl + 'videos?page=' + page + '&per_page=' + perPage + '&query=' + query)
       .map(response => {
         const searchVideos: Video[] = [];
         response.data.forEach(dto => {
           searchVideos.push(this.dtoToVideo(dto));
         });
         return searchVideos;
+      }, () => {
+        return (Observable.throw(new Error('Server Error')));
       });
   }
 

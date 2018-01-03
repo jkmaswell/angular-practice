@@ -1,22 +1,13 @@
 import {AppComponent} from './app.component';
-import {
-  MissingTranslationHandler, TranslateCompiler, TranslateLoader, TranslateModule, TranslateParser, TranslateService
-} from '@ngx-translate/core';
-import {DebugElement, Injector} from '@angular/core';
-import {ComponentFixture, inject, TestBed} from '@angular/core/testing';
-import {UIRouterModule} from "@uirouter/angular";
-import {APP_BASE_HREF} from "@angular/common";
+import {TranslateModule} from '@ngx-translate/core';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {UIRouterModule} from '@uirouter/angular';
+import {APP_BASE_HREF} from '@angular/common';
 
-class TranslateServiceMock extends TranslateService {
-
-}
-
-fdescribe('AppComponent', () => {
+describe('AppComponent', () => {
 
   let comp: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
-  let de: DebugElement;
-  let el: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -30,15 +21,8 @@ fdescribe('AppComponent', () => {
 
     fixture = TestBed.createComponent(AppComponent);
 
-    comp = fixture.componentInstance; // BannerComponent test instance
+    comp = fixture.componentInstance;
 
-    // query for the title <h1> by CSS element selector
-    // de = fixture.debugElement.query(By.css('h1'));
-    // el = de.nativeElement;
-  });
-
-  afterEach(() => {
-    // translate = undefined;
   });
 
   it('should create', () => {
