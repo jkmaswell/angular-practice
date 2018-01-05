@@ -1,11 +1,13 @@
 import {DashboardComponent} from './dashboard.component';
 import {VideoService} from '../../core/service/video/video.service';
-import {UserService} from '../../core/service/user/user.service';
-import {StateService, Transition} from '@uirouter/angular';
+import {Transition} from '@uirouter/angular';
 
 export const state = {
   name: 'main.dashboard',
   url: '/category/:categoryId?page&perPage',
+  data: {
+    authorization: 'logged',
+  },
   views: {
     'content@': {
       component: DashboardComponent
@@ -17,17 +19,6 @@ export const state = {
     perPage: '12'
   },
   resolve: [
-    {
-      token: 'currentUser',
-      deps: [UserService, StateService],
-      resolveFn: (userService: UserService, stateService: StateService) => {
-        return userService.getUser().toPromise().then(currentUser => {
-          if (!currentUser) {
-            stateService.go('login');
-          }
-        });
-      }
-    },
     {
       token: 'categoryVideos',
       deps: [Transition, VideoService],
