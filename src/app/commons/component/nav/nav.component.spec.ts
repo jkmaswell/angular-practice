@@ -76,7 +76,7 @@ describe('NavComponent', () => {
     const userResponse = {name: 'user'};
     spyOn(categoryServiceMock, 'getAllCategories').and.returnValue(of(categoryResponse));
     spyOn(userServiceMock, 'getUser').and.returnValue(of(userResponse));
-    comp.loadInitialData();
+    comp.ngOnInit();
     expect(categoryServiceMock.getAllCategories).toHaveBeenCalled();
     expect(userServiceMock.getUser).toHaveBeenCalled();
   });

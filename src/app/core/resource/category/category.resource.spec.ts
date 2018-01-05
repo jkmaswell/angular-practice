@@ -34,11 +34,9 @@ describe('NavComponent', () => {
 
   it('should call getAllCategories', () => {
     const categoriesResponse = {data: [{name: 'cat 1', uri: 'some/mock'}]};
-
     categoryResourceMock.getAllCategories().subscribe(categories => {
       expect(categories.length).toBe(1);
     });
-
     const req = httpMock.expectOne('https://api.vimeo.com/categories');
     expect(req.request.method).toBe('GET');
     req.flush(categoriesResponse);
