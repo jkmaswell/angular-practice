@@ -7,8 +7,6 @@ import {CategoryResource} from './resource/category/category.resource';
 import {CategoryService} from './service/category/category.service';
 import {VideoResource} from './resource/video/video.resource';
 import {VideoService} from './service/video/video.service';
-import {SearchResource} from './resource/search/search.resource';
-import {SearchService} from './service/search/search.service';
 
 @NgModule({
   imports: [
@@ -22,9 +20,7 @@ import {SearchService} from './service/search/search.service';
     CategoryResource,
     CategoryService,
     VideoResource,
-    VideoService,
-    SearchResource,
-    SearchService
+    VideoService
   ]
 })
 export class CoreModule {

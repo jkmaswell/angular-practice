@@ -4,10 +4,10 @@ import {Comment} from '../../core/model/comment/comment.model';
 
 @Component({
   selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  templateUrl: './video-detail.component.html',
+  styleUrls: ['./video-detail.component.scss']
 })
-export class DetailComponent {
+export class VideoDetailComponent {
 
   @Input() video: Video;
   @Input() comments: Comment;

@@ -6,7 +6,7 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {VimeoApiKey} from './core/core.constants';
+import {VimeoApiKey} from './commons/constants/app.constants';
 
 @Injectable()
 export class GeneralInterceptor implements HttpInterceptor {

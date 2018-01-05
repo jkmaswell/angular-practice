@@ -1,4 +1,4 @@
-import {DetailComponent} from './detail.component';
+import {VideoDetailComponent} from './video-detail.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {UIRouterModule} from '@uirouter/angular';
@@ -6,14 +6,14 @@ import {APP_BASE_HREF} from '@angular/common';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {MomentModule} from 'angular2-moment';
 
-describe('DetailComponent', () => {
+describe('VideoDetailComponent', () => {
 
-  let comp: DetailComponent;
-  let fixture: ComponentFixture<DetailComponent>;
+  let comp: VideoDetailComponent;
+  let fixture: ComponentFixture<VideoDetailComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DetailComponent],
+      declarations: [VideoDetailComponent],
       imports: [
         UIRouterModule.forRoot(),
         TranslateModule.forRoot(),
@@ -25,7 +25,7 @@ describe('DetailComponent', () => {
       schemas: [NO_ERRORS_SCHEMA]
     });
 
-    fixture = TestBed.createComponent(DetailComponent);
+    fixture = TestBed.createComponent(VideoDetailComponent);
     comp = fixture.componentInstance;
 
   });

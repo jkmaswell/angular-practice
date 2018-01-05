@@ -23,6 +23,9 @@ describe('UserService', () => {
     },
     getVideoComments: () => {
       return of({});
+    },
+    searchVideos: () => {
+      return of({});
     }
   };
 
@@ -86,6 +89,21 @@ describe('UserService', () => {
     spyOn(videoResourceMock, 'getVideoComments').and.returnValue(of(videoResponse));
     videoServiceMock.getVideoComments(videoId);
     expect(videoResourceMock.getVideoComments).toHaveBeenCalled();
+  });
+
+  it('should call searchVideos', () => {
+    const videosResponse = {data: [{name: 121212, embed: { html: 'html'}, uri: 'some/uri'}]};
+    const query = 'animation';
+    const page = '1';
+    const perPage = '12';
+
+    videoResourceMock.searchVideos(page, perPage, query).subscribe(videos => {
+      expect(videos.length).toBe(1);
+    });
+
+    const req = httpMock.expectOne('https://api.vimeo.com/videos?page=1&per_page=12&query=animation');
+    expect(req.request.method).toBe('GET');
+    req.flush(videosResponse);
   });
 
 });

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {VimeoApiKey} from '../../core.constants';
+import {VimeoApiKey} from '../../../commons/constants/app.constants';
 import {Video} from '../../model/video/video.model';
 import {Comment} from '../../model/comment/comment.model';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -16,7 +16,11 @@ export class VideoResource {
     this.http = http;
   }
 
-  getTotalVideosByCategory(categoryId: string, page?: string, perPage?: string): Observable<any> {
+  getTotalVideosByCategory(categoryId: string, page?: number, perPage?: number): Observable<any> {
+    if (0 > page || 0 > perPage) {
+      page = 1;
+      perPage = 12;
+    }
     return this.http.get<any>(VimeoApiKey.vimeoBaseUrl + 'categories/' + categoryId + '/videos?page=' + page + '&per_page=' + perPage)
       .map(response => {
         return response.total;
@@ -25,7 +29,7 @@ export class VideoResource {
       });
   }
 
-  getVideosByCategory(categoryId: string, page?: string, perPage?: string): Observable<Video[]> {
+  getVideosByCategory(categoryId: string, page?: number, perPage?: number): Observable<Video[]> {
     return this.http.get<any>(VimeoApiKey.vimeoBaseUrl + 'categories/' + categoryId + '/videos?page=' + page + '&per_page=' + perPage)
       .map(response => {
         const categoryVideos: Video[] = [];
@@ -57,6 +61,23 @@ export class VideoResource {
           videoComments.push(new Comment(dto.text, dto.created_on, dto.user));
         });
         return videoComments;
+      }, () => {
+        return (Observable.throw(new Error('Server Error')));
+      });
+  }
+
+  searchVideos(page?: number, perPage?: number, query?: string): Observable<Video[]> {
+    if (0 > page || 0 > perPage) {
+      page = 1;
+      perPage = 12;
+    }
+    return this.http.get<any>(VimeoApiKey.vimeoBaseUrl + 'videos?page=' + page + '&per_page=' + perPage + '&query=' + query)
+      .map(response => {
+        const searchVideos: Video[] = [];
+        response.data.forEach(dto => {
+          searchVideos.push(this.dtoToVideo(dto));
+        });
+        return searchVideos;
       }, () => {
         return (Observable.throw(new Error('Server Error')));
       });

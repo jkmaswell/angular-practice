@@ -6,7 +6,7 @@ import 'rxjs/add/observable/forkJoin';
 export function translateLoader(http: HttpClient) {
 
   return new MultiTranslateHttpLoader(http, [
-    {prefix: 'src/app/states/detail/lang/', suffix: '.json'},
+    {prefix: 'src/app/states/video-detail/lang/', suffix: '.json'},
     {prefix: 'src/app/states/login/lang/', suffix: '.json'},
     {prefix: 'src/app/states/register/lang/', suffix: '.json'},
     {prefix: 'src/app/commons/component/nav/lang/', suffix: '.json'}

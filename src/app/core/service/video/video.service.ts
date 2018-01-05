@@ -10,11 +10,11 @@ export class VideoService {
   constructor(private videoResource: VideoResource) {
   }
 
-  getTotalVideosByCategory(categoryId: string, page?: string, perPage?: string): Observable<any> {
+  getTotalVideosByCategory(categoryId: string, page?: number, perPage?: number): Observable<any> {
     return this.videoResource.getTotalVideosByCategory(categoryId, page, perPage);
   }
 
-  getVideosByCategory(categoryId: string, page?: string, perPage?: string): Observable<Video[]> {
+  getVideosByCategory(categoryId: string, page?: number, perPage?: number): Observable<Video[]> {
     return this.videoResource.getVideosByCategory(categoryId, page, perPage);
   }
 
@@ -24,5 +24,9 @@ export class VideoService {
 
   getVideoComments(videoId: string): Observable<Comment[]> {
     return this.videoResource.getVideoComments(videoId);
+  }
+
+  searchVideos(page?: number, perPage?: number, query?: string): Observable<Video[]> {
+    return this.videoResource.searchVideos(page, perPage, query);
   }
 }

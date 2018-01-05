@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {UserService} from '../../core/service/user/user.service';
 import {StateService} from '@uirouter/angular';
 
@@ -7,7 +7,7 @@ import {StateService} from '@uirouter/angular';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   user: any = {};
 
@@ -15,9 +15,6 @@ export class RegisterComponent implements OnInit {
               private stateService: StateService) {
     this.userService = userService;
     this.stateService = stateService;
-  }
-
-  ngOnInit() {
   }
 
   register() {

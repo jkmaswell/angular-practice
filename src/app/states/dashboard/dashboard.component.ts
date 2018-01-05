@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Video} from '../../core/model/video/video.model';
 import {StateService, Transition} from '@uirouter/angular';
-import {VimeoApiKey} from '../../core/core.constants';
+import {VimeoApiKey} from '../../commons/constants/app.constants';
 
 @Component({
   selector: 'app-dashboard',

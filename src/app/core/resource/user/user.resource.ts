@@ -22,11 +22,10 @@ export class UserResource {
       if (duplicateUser) {
         return (Observable.throw(new Error('User Duplicated')));
       }
-    } else {
-      users.push(newUser);
-      localStorage.setItem('users', JSON.stringify(users));
-      return (Observable.of(newUser));
     }
+    users.push(newUser);
+    localStorage.setItem('users', JSON.stringify(users));
+    return (Observable.of(newUser));
   }
 
   getUser(): Observable<User> {

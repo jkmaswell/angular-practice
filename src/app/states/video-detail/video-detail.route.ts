@@ -1,4 +1,4 @@
-import {DetailComponent} from './detail.component';
+import {VideoDetailComponent} from './video-detail.component';
 import {StateService, Transition} from '@uirouter/angular';
 import {VideoService} from '../../core/service/video/video.service';
 import {UserService} from '../../core/service/user/user.service';
@@ -8,7 +8,7 @@ export const state = {
   url: '/video/:videoId',
   views: {
     'content@': {
-      component: DetailComponent
+      component: VideoDetailComponent
     }
   },
   params: {

@@ -9,7 +9,7 @@ import {CoreModule} from './core/core.module';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {GeneralInterceptor} from './app.interceptor';
 import {NavComponent} from './commons/component/nav/nav.component';
-import {DetailComponent} from './states/detail/detail.component';
+import {VideoDetailComponent} from './states/video-detail/video-detail.component';
 import {HeaderComponent} from './commons/component/header/header.component';
 import {MomentModule} from 'angular2-moment';
 import {RegisterComponent} from './states/register/register.component';
@@ -25,7 +25,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     DashboardComponent,
     NavComponent,
-    DetailComponent,
+    VideoDetailComponent,
     HeaderComponent,
     RegisterComponent,
     LoginComponent

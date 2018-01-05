@@ -4,7 +4,7 @@
     <form (ngSubmit)="loginForm.valid && login()" name="loginForm" #loginForm="ngForm" novalidate>
       <div class="form-group" [ngClass]="{'has-error': !email.valid && loginForm.submitted}">
         <label for="email" [translate]="'LOGIN.EMAIL'"></label>
-        <input class="form-control" #email type="email" id="email" [(ngModel)]="user.email" name="email" required>
+        <input class="form-control" #email type="email" id="email" [(ngModel)]="user.email" name="email" email="true" required>
         <div *ngIf="loginForm.submitted && !email.valid" class="help-block small" [translate]="'LOGIN.EMAIL_REQUIRED'"></div>
       </div>
       <div class="form-group" [ngClass]="{'has-error': !password.valid && loginForm.submitted}">

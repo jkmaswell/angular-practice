@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {VimeoApiKey} from '../../core.constants';
+import {VimeoApiKey} from '../../../commons/constants/app.constants';
 import {Category} from '../../model/category/category.model';
 
 // Import RxJs required methods

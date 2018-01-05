@@ -11,43 +11,21 @@ export class User {
     return this._firstName;
   }
 
-  set firstName(value: string) {
-    this._firstName = value;
-  }
-
   get middleName(): string {
     return this._middleName;
-  }
-
-  set middleName(value: string) {
-    this._middleName = value;
   }
 
   get lastName(): string {
     return this._lastName;
   }
 
-  set lastName(value: string) {
-    this._lastName = value;
-  }
-
   get email(): string {
     return this._email;
-  }
-
-  set email(value: string) {
-    this._email = value;
   }
 
   get password(): string {
     return this._password;
   }
-
-  set password(value: string) {
-    this._password = value;
-  }
-
-
 }
 
 

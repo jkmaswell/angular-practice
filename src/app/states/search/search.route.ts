@@ -1,6 +1,6 @@
 import {DashboardComponent} from '../dashboard/dashboard.component';
 import {StateService, Transition} from '@uirouter/angular';
-import {SearchService} from '../../core/service/search/search.service';
+import {VideoService} from '../../core/service/video/video.service';
 import {UserService} from '../../core/service/user/user.service';
 
 export const state = {
@@ -30,10 +30,10 @@ export const state = {
     },
     {
       token: 'categoryVideos',
-      deps: [Transition, SearchService],
-      resolveFn: (transition: Transition, searchService: SearchService) => {
+      deps: [Transition, VideoService],
+      resolveFn: (transition: Transition, videoService: VideoService) => {
         const params = transition.params();
-        return searchService.searchVideos(params.page, params.perPage, params.query).toPromise();
+        return videoService.searchVideos(params.page, params.perPage, params.query).toPromise();
       }
     }
   ]
